@@ -1,0 +1,11 @@
+Entity - lives in world, contains reference to it
+   Needs to have movement and idea of movement: It's position in the world shouldn't be known, only an approximation of it's movements
+   Similarly, it's range sensor should have some uncertainty
+   Implement with and without Kalman Filter
+
+World - It's a world - 2D array of pixels
+   Does this need to be an object? Or can the entity simply contain the world :)
+   Would be nice to randomly generate at some point, so we'll make a World class
+
+World representation - Entity's current idea of the world
+   Can just be a 2D array of black-white. Whenever bot sees a point, it registers it in the world representation with a white pixel value.

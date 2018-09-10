@@ -94,6 +94,7 @@ dir = 0
 speed = 10
 
 while True:
+    # Gen new point
     new_point = move(point, dir, map.shape, speed)
     while should_turn(sample_at(map, new_point, dir)) or random.randrange(0, 1000) < 10:
         dir = random.randrange(0, 4)
@@ -107,14 +108,14 @@ while True:
         if w:
             walls.append(w)
     # point, wall = scan_random(map, result)
-    res2 = np.stack((result, )*3, -1)
+    res2 = np.stack((result,)*3, -1)
 
     # if wall is not None:
     for wall in walls:
         cv.line(res2, xy(point), xy(wall), (0, 255, 0), 2)
     cv.circle(res2, xy(point), 5, (255, 0, 0), -1)
 
-    cv.imshow('map', map)
+    #  cv.imshow('map', map)
     cv.imshow('result', res2)
     if cv.waitKey(1) & 0xFF == ord('q'):
         break
